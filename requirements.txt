@@ -38,4 +38,4 @@ django-session-csrf
 
 virtualenv
 
-google-api-python-client
+google-cloud
