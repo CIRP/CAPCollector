@@ -38,4 +38,4 @@ django-session-csrf
 
 virtualenv
 
-whitenoise
+google-cloud
