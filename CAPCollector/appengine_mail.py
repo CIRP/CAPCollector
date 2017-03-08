@@ -44,44 +44,6 @@ class EmailBackend(base.BaseEmailBackend):
 
   def _convert_message(self, django_email):
     """Convert a Django EmailMessage to an App Engine EmailMessage."""
-"""
-    django_email.reply_to = django_email.extra_headers.get("Reply-To", None)
-
-    html_body = None
-    if django_email.alternatives:
-      if django_email.alternatives[0]:
-        html_body = django_email.alternatives[0][0]
-
-    logging.info("Subject without formatting: %s", django_email.subject)
-
-    from_email = "admin@%s.appspotmail.com" % app_identity.get_application_id()
-
-    ae_kwargs = {
-        "sender": from_email,
-        "subject": self._format_subject(settings.EMAIL_SUBJECT_PREFIX
-                                        + django_email.subject),
-        "to": django_email.to,
-    }
-
-    if django_email.reply_to:
-      ae_kwargs["reply_to"] = django_email.reply_to
-
-    if django_email.cc:
-      ae_kwargs["cc"] = django_email.cc
-
-    if django_email.bcc:
-      ae_kwargs["bcc"] = django_email.bcc
-
-    ae_kwargs["body"] = django_email.body
-
-    if html_body:
-      ae_kwargs["html"] = html_body
-
-    ae_email = mail.EmailMessage(**ae_kwargs)
-    ae_email.check_initialized()
-    
-    return ae_email
-    """
     return "converted email"    
 
   def _format_subject(self, subject):
