@@ -139,14 +139,14 @@ echo "PROD_FROM_DEV_DATABASE_USER=''" >> ./sensitive.py
 echo "PROD_FROM_DEV_DATABASE_PASSWORD=''" >> ./sensitive.py
 
 # Sync Django models to databse. This involves superuser creation.
-$PYTHON manage.py makemigrations
+python manage.py makemigrations
 
-$PYTHON manage.py migrate
+python manage.py migrate
 
-$PYTHON manage.py createsuperuser
+python manage.py createsuperuser
 
 # Compile translation messages to .mo files.
-$PYTHON manage.py compilemessages
+python manage.py compilemessages
 
 # Collect static files.
-$PYTHON manage.py collectstatic -v0 --noinput
+python manage.py collectstatic -v0 --noinput
