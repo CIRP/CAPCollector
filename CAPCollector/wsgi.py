@@ -9,6 +9,8 @@ https://docs.djangoproject.com/en/1.7/howto/deployment/wsgi/
 import os
 import sys
 
+from whitenoise.django import DjangoWhiteNoise
+
 # AppEngine third-party apps path include.
 if "SERVER_SOFTWARE" in os.environ:
   if os.environ.get("SERVER_SOFTWARE"):  # AppEngine.
