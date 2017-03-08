@@ -88,12 +88,12 @@ if  [ "$APPENGINE" == "y" ]; then
     mkdir libs
   fi
 
-  LIBS=(bs4 dateutil django pytz session_csrf six.py)
+  #LIBS=(bs4 dateutil django pytz session_csrf six.py)
 
-  echo -n "Copying files, this might take a while..."
-  for lib in ${LIBS[@]}; do
-    cp -r $PIP_LIBS/$lib libs/
-  done
+  #echo -n "Copying files, this might take a while..."
+  #for lib in ${LIBS[@]}; do
+  #  cp -r $PIP_LIBS/$lib libs/
+  #done
 fi
 
 # Get database related input.
@@ -113,7 +113,7 @@ if [ "$DATABASE_HOST" ]; then
   read DATABASE_USER
 
   echo -n "Enter database password: "
-  read -s DATABASE_PASSWORD
+  read DATABASE_PASSWORD
 fi
 
 echo "DATABASE_HOST='$DATABASE_HOST'" >> ./sensitive.py
@@ -139,7 +139,11 @@ echo "PROD_FROM_DEV_DATABASE_USER=''" >> ./sensitive.py
 echo "PROD_FROM_DEV_DATABASE_PASSWORD=''" >> ./sensitive.py
 
 # Sync Django models to databse. This involves superuser creation.
-$PYTHON manage.py syncdb
+$PYTHON manage.py makemigrations
+
+$PYTHON manage.py migrate
+
+$PYTHON manage.py createsuperuser
 
 # Compile translation messages to .mo files.
 $PYTHON manage.py compilemessages

@@ -30,8 +30,8 @@ LANGUAGE_CODE = "en-us"
 # information.
 LANGUAGES = (
     ("en-us", "English"),
-    ("hi", "हिंदी"),
-    ("pt-br", "Português"),
+    ("hi", "Chinese"),
+    ("pt-br", "Portuguese"),
 )
 
 # Set map default viewport here.

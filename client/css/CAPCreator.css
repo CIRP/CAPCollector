@@ -1,0 +1,352 @@
+/*
+  CAPCreator.css -- styles for CAPCreator
+  version 0.9 - 20 August 2013
+
+  Copyright (c) 2013, Carnegie Mellon University
+  All rights reserved.
+
+  Redistribution and use in source and binary forms, with or without modification, are permitted
+  provided that the following conditions are met:
+
+  * Redistributions of source code must retain the above copyright notice, this list of conditions
+  and the following disclaimer.
+
+  * Redistributions in binary form must reproduce the above copyright notice, this list of conditions
+  and the following disclaimer in the documentation and/or other materials provided with the distribution.
+
+  * Neither the name of Carnegie Mellon University nor the names of its contributors may be used to endorse or
+  promote products derived from this software without specific prior written permission.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR
+  IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND
+  FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS
+  BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
+  BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR
+  BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+  LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+  Contributors:  Art Botterell <art.botterell@sv.cmu.edu>, <acb@incident.com>, <art@raydant.com>
+
+*/
+
+.jqm-header {
+  padding: 8px;
+}
+
+.page_label {
+  font-size: 16px;
+}
+
+.tm {
+  font-size: 12px;
+  font-weight: normal;
+  color: gray;
+}
+
+.jqm-content {
+  margin: 10px 0px 5px 0px;
+}
+
+.jqm-footer {
+  padding: 3px;
+  margin: 0px;
+}
+
+/* avoid pink tiles in maps */
+.olImageLoadError {
+  background-color: transparent !important;
+}
+
+#coords {
+  margin-left: 5px;
+  font-size: 0.8em;
+  float: left;
+  color: White;
+}
+
+#radius {
+  width: 180px;
+  height: 20px;
+  float:right;
+  font-size: 0.8em;
+  text-align: right;
+  margin-right: 5px;
+  color: White;
+}
+
+#display_div {
+  width: 95%;
+}
+
+#map_panel {
+  background-color: SteelBlue;
+}
+
+.largemap {
+  width: 100%;
+  height: 380px;
+}
+
+#map {
+  cursor: crosshair;
+}
+
+#map_panel, #mode_panel, #review_div {
+  margin: 0 15px;
+}
+
+#mode_panel {
+  border: 1px;
+}
+
+#geocode_div {
+  margin: 0 10px 10px 10px;
+}
+
+input[type=radio] {
+  cursor: pointer;
+}
+
+input[type=button] {
+  cursor: pointer;
+}
+
+.tuple-text {
+  width: 90%!important;
+  display: inline-block!important;
+  margin: 0 .2em 0 0!important;
+}
+
+.ui-mini .ui-btn-inner .ui-btn-text {
+  font-size: 12px;
+  padding: 2px;
+  margin: 2px;
+}
+
+.info_block {
+  font-size: 10pt;
+
+}
+
+.field_label {
+  font-size: 0.7em;
+  font-weight:bold;
+}
+
+.review-label {
+  margin-top: 15px;
+  margin-left: 8px;
+}
+
+#headline_length {
+  font-style: italic;
+}
+
+#review_div {
+  font-size: 0.8em;
+  height: 300px;
+  background-color: #eee;
+  overflow: auto;
+}
+
+#about_div {
+  margin:5px 0px 10px 5px;
+  font-size: 0.8em;
+  height: 40px;
+  background-color: White;
+  overflow: auto;
+}
+
+#current_alerts_div {
+  margin: 0px;
+  font-size: 0.6em;
+  height: 400px;
+  background-color: White;
+  overflow: auto;
+}
+
+#response_status, #response_uuid {
+  font-size: 0.7em;
+  margin: 0 0 0 15px;
+  background-color: white;
+}
+
+.subhead {
+  margin: 0px 0px 6px 0px;
+  font-size: 1em;
+  font-weight: bold;
+}
+
+.html_table {
+  font-size: 0.9em;
+}
+
+.html_label_cell {
+  font-weight: bold;
+  font-size: 0.7em;
+  background-color: #e0e0e0;
+  padding: 0px 3px 0px 3px;
+  text-align:right;
+}
+
+.form_row_div {
+  margin: 0 15px 15px 15px;
+}
+
+.ui-content {
+  padding: 0;
+}
+
+.ui-controlgroup-horizontal.ui-mini .ui-btn-inner {
+  height: auto;
+}
+
+.create-new-template {
+  padding: 4px 0;
+}
+
+.ui-btn-up-c, .ui-btn-hover-c {
+  font-weight: normal;
+  text-shadow: none;
+}
+
+.divider {
+  width: 100%;
+  border-top: 1px solid #ddd;
+  margin: 0 0 15px 0;
+}
+
+a.main, a.next {
+  whitespace: normal;
+  width: 200px;
+}
+
+a.next, a.main, a.about {
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+a.about {
+   width: 200px;
+   font-style:italic;
+   font-weight:normal;
+}
+
+a.release {
+  width: 180px;
+  margin-top: 8px;
+  margin-left: 15px;
+}
+
+a.next, a.release {
+  background: #7c7c7c;
+  padding: 10px 5px 10px 0;
+  color: #fff!important;
+  font-weight: bold!important;
+  border-radius: 30px;
+}
+
+a.next .ui-btn-inner, a.release .ui-btn-inner {
+  border-top: none;
+}
+
+option.prepopulated:checked, span.prepopulated, input.prepopulated,
+textarea.prepopulated {
+  color:  #42bd41;
+}
+
+.templates-control .templates {
+  max-width: 15em;
+  display: inline-block;
+}
+
+#current_alerts_div, #alert_view_div {
+  padding: 0 15px 15px 15px;
+ }
+
+.templates-control .re-apply, .templates-control .clear {
+  max-width: 15em;
+  display: inline-block;
+  font-size: small;
+  margin-left: 1em;
+}
+
+.re-apply a, .clear a {
+  text-decoration: none;
+  display: none;
+  font-weight: normal;
+}
+
+div.ui-input-text {
+  max-width: 490px;
+  padding: 0 5px;
+}
+
+#textarea-description, #textarea-instruction, #textarea-areaDesc {
+  max-width: 500px;
+  min-height: 3em;
+}
+
+.required, .required-placeholder, .indicate-required-select,
+.invalid-placeholder, .invalid-placeholder-message,
+.required-combined-placeholder {
+  color: red;
+}
+
+.required-placeholder, .required-combined-placeholder, .invalid-placeholder {
+  font-size: 0.7em;
+  font-weight: bold;
+}
+
+.required-placeholder, .invalid-placeholder, .required-combined-placeholder {
+  padding: 0 0 0 15px;
+}
+
+.indicate-required-input, .indicate-invalid-placeholder {
+  border: 1px solid red;
+}
+
+a.parameter {
+  display: inline-block;
+}
+
+.hidden {
+  display: none;
+}
+
+.cap-parameter {
+  display: inline-block;
+  max-width: 210px!important;
+  width: 210px;
+}
+
+.cap-parameter .invalid-placeholder-message {
+  margin: 3px 0 3px 3px;
+  overflow-wrap: break-word;
+  font-size: 0.7em;
+  font-weight: bold;
+}
+
+/* Make sure datetime picker is in front of other menu and input fields */
+#picker-expires-block {
+  position: relative;
+  z-index: 9999;
+}
+
+#ui-datepicker-div .ui-datepicker-next .ui-icon,
+#ui-datepicker-div .ui-datepicker-prev .ui-icon {
+  background-color: transparent;
+}
+
+/* Hide now button from datetime picker */
+.ui-datepicker .ui-datepicker-buttonpane button.ui-datepicker-current {
+  display: none;
+}
+
+.select2-search__field, .select2-results__option, .select2-selection__choice {
+  font-family: Helvetica,Arial,sans-serif;
+  text-shadow: none;
+  font-size: 14px !important;
+}
+

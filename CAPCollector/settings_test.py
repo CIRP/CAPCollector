@@ -14,7 +14,7 @@ SITE_DOMAIN = "localhost"
 SITE_PORT = "8081"
 SITE_URL = SITE_SCHEME + "://" + SITE_DOMAIN + ":" + SITE_PORT
 
-ALLOWED_HOSTS = [SITE_DOMAIN]
+ALLOWED_HOSTS = ["localhost", SITE_DOMAIN]
 
 LANGUAGES = (
     ("en-us", "English"),

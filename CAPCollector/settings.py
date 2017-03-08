@@ -44,7 +44,7 @@ ALERT_CREATORS_GROUP_NAME = "can release alerts"
 # A list of strings representing the host/domain names that this Django site ca
 # serve.
 # https://docs.djangoproject.com/en/dev/ref/settings/#allowed-hosts
-ALLOWED_HOSTS = [SITE_DOMAIN]
+ALLOWED_HOSTS = ["localhost", SITE_DOMAIN]
 
 # Must be set to False in production.
 # See https://docs.djangoproject.com/en/dev/ref/settings/#debug
