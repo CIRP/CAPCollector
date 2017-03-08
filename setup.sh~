@@ -16,10 +16,10 @@ PIP_LIBS="../venv/local/lib/python2.7/site-packages"
 PYTHON="../venv/bin/python"
 
 # Check virtual environment setup.
-if [ ! -e "$PIP" ] && [ ! -e "$PYTHON" ]; then
-  echo "Script expects that you have first run 'virtualenv ../venv'"
-  exit 1
-fi
+#if [ ! -e "$PIP" ] && [ ! -e "$PYTHON" ]; then
+#  echo "Script expects that you have first run 'virtualenv ../venv'"
+#  exit 1
+#fi
 
 # Install required modules if they don't already exist:
 $PIP install -r requirements.txt
@@ -142,6 +142,8 @@ echo "PROD_FROM_DEV_DATABASE_PASSWORD=''" >> ./sensitive.py
 $PYTHON manage.py makemigrations
 
 $PYTHON manage.py migrate
+
+$PYTHON manage.py createsuperuser
 
 # Compile translation messages to .mo files.
 $PYTHON manage.py compilemessages
