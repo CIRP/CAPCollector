@@ -7,8 +7,8 @@ import logging
 from django.conf import settings
 from django.core.mail.backends import base
 from django.utils import text
-#from google.appengine.api import app_identity
-#from google.appengine.api import mail
+from google.appengine.api import app_identity
+from google.appengine.api import mail
 
 
 class EmailBackend(base.BaseEmailBackend):
@@ -44,7 +44,7 @@ class EmailBackend(base.BaseEmailBackend):
 
   def _convert_message(self, django_email):
     """Convert a Django EmailMessage to an App Engine EmailMessage."""
-"""
+
     django_email.reply_to = django_email.extra_headers.get("Reply-To", None)
 
     html_body = None
@@ -79,10 +79,7 @@ class EmailBackend(base.BaseEmailBackend):
 
     ae_email = mail.EmailMessage(**ae_kwargs)
     ae_email.check_initialized()
-    
     return ae_email
-    """
-    return "converted email"    
 
   def _format_subject(self, subject):
     """Escape CR and LF characters, and limit length.
