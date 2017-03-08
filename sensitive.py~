@@ -1,8 +1,8 @@
 SECRET_KEY='bcfpmlv_+ztp^!)w)$o$odnvmy$@@z32xw)p1%+tftol@!zq#)'
-DATABASE_HOST='lus-cdbr-iron-east-03.cleardb.net'
-DATABASE_NAME='heroku_af58301fbaadf80'
-DATABASE_USER='b18d98629cd3ec'
-DATABASE_PASSWORD='87d8577c'
+DATABASE_HOST='localhost'
+DATABASE_NAME='cap'
+DATABASE_USER='root'
+DATABASE_PASSWORD='yVL9jd438xLzDsA4'
 
 # Flags for testing against a development MySQL database. This is used by default with AppEngine's dev_appserver,
 # and can also be turned on by running 'export CAP_TOOLS_DB=dev', but this is not required if using Django's internal sqlite db.
