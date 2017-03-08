@@ -1,1 +1,1 @@
-web: gunicorn cap-tools.wsgi --log-file -
+web: gunicorn CAPCollector.wsgi --log-file -
