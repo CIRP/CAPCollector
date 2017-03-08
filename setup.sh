@@ -45,13 +45,13 @@ wget http://code.jquery.com/mobile/1.3.0/images/icons-36-white.png -O ./static/c
 
 # Download OpenLayers JS library, for displaying a dynamic map to create areas.
 wget https://cdnjs.cloudflare.com/ajax/libs/openlayers/2.13.1/OpenLayers.js -O ./static/js/OpenLayers.js
-wget https://github.com/openlayers/openlayers/blob/master/img/east-mini.png -O ./static/img/east-mini.png
-wget https://github.com/openlayers/openlayers/blob/master/img/north-mini.png -O ./static/img/north-mini.png
-wget https://github.com/openlayers/openlayers/blob/master/img/south-mini.png -O ./static/img/south-mini.png
-wget https://github.com/openlayers/openlayers/blob/master/img/west-mini.png -O ./static/img/west-mini.png
-wget https://github.com/openlayers/openlayers/blob/master/img/zoom-minus-mini.png -O ./static/img/zoom-minus-mini.png
-wget https://github.com/openlayers/openlayers/blob/master/img/zoom-plus-mini.png -O ./static/img/zoom-plus-mini.png
-wget https://github.com/openlayers/openlayers/blob/master/img/zoom-world-mini.png -O ./static/img/zoom-world-mini.png
+wget https://raw.githubusercontent.com/benoitc/afgwardiary/master/_attachments/openlayers/img/east-mini.png -O ./static/img/east-mini.png
+wget https://raw.githubusercontent.com/benoitc/afgwardiary/master/_attachments/openlayers/img/north-mini.png -O ./static/img/north-mini.png
+wget https://raw.githubusercontent.com/benoitc/afgwardiary/master/_attachments/openlayers/img/south-mini.png -O ./static/img/south-mini.png
+wget https://raw.githubusercontent.com/benoitc/afgwardiary/master/_attachments/openlayers/img/west-mini.png -O ./static/img/west-mini.png
+wget https://raw.githubusercontent.com/benoitc/afgwardiary/master/_attachments/openlayers/img/zoom-minus-mini.png -O ./static/img/zoom-minus-mini.png
+wget https://raw.githubusercontent.com/benoitc/afgwardiary/master/_attachments/openlayers/img/zoom-plus-mini.png -O ./static/img/zoom-plus-mini.png
+wget https://raw.githubusercontent.com/benoitc/afgwardiary/master/_attachments/openlayers/img/zoom-world-mini.png -O ./static/img/zoom-world-mini.png
 
 # Download JQuery mobile CSS file.
 wget http://code.jquery.com/mobile/1.3.0/jquery.mobile-1.3.0.min.css -O ./static/css/jquery.mobile-1.3.0.min.css
