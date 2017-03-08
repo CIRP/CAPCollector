@@ -1,5 +1,5 @@
 SECRET_KEY='bcfpmlv_+ztp^!)w)$o$odnvmy$@@z32xw)p1%+tftol@!zq#)'
-DATABASE_HOST='lus-cdbr-iron-east-03.cleardb.net'
+DATABASE_HOST='us-cdbr-iron-east-03.cleardb.net'
 DATABASE_NAME='heroku_af58301fbaadf80'
 DATABASE_USER='b18d98629cd3ec'
 DATABASE_PASSWORD='87d8577c'
