@@ -37,5 +37,3 @@ selenium==2.43
 django-session-csrf
 
 virtualenv
-
-google-api-python-client
