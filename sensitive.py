@@ -1,4 +1,4 @@
-SECRET_KEY='bcfpmlv_+ztp^!)w)$o$odnvmy$@@z32xw)p1%+tftol@!zq#)'
+SECRET_KEY='9#xcqrlmq28zwj1olb8yl1i^sfi3!e4@kgs5ylwr#lq))@fm07'
 DATABASE_HOST='us-cdbr-iron-east-03.cleardb.net'
 DATABASE_NAME='heroku_af58301fbaadf80'
 DATABASE_USER='b18d98629cd3ec'

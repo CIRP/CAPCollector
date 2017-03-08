@@ -40,10 +40,8 @@ class FeedView(View):
         return HttpResponse(BeautifulSoup(response, feed_type).prettify())
 
       return HttpResponse(alert.content, content_type="text/xml")
-    
-    feed_data = utils.GenerateFeed(feed_type)
-    print feed_data
-    return HttpResponse(feed_data,
+
+    return HttpResponse(utils.GenerateFeed(feed_type),
                         content_type="text/%s" % feed_type)
 
 
