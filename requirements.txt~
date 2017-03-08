@@ -35,5 +35,3 @@ selenium==2.43
 
 # django-session-csrf - Required for Django session based CSRF protection.
 django-session-csrf
-
-virtualenv
