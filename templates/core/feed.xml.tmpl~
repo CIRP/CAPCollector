@@ -2,7 +2,7 @@
 
 {% load i18n %}
 
-
+<?xml version = "1.0" encoding = "UTF-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom"
       xmlns:cap="urn:oasis:names:tc:emergency:cap:1.2">
   <title>{% trans "Current Alerts" %}</title>
