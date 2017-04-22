@@ -12,13 +12,13 @@
     <div>{% trans "Your username and password didn't match. Please try again." %}</div>
   {% endif %}
 
-  <form method="post" action="{% url 'django.contrib.auth.views.login' %}">
+  <form method="post" action="{% url 'login' %}"">
     {% csrf_token %}
     <div>
       {{ form.username.label_tag }} {{ form.username }}
       {{ form.password.label_tag }} {{ form.password }}
       <input type="submit" value="Login" />
-      <a href="{% url 'django.contrib.auth.views.password_reset' %}">{% trans "Forgot password?" %}</a>
+      <a href="{% url 'password_reset' %}">{% trans "Forgot password?" %}</a>
     </div>
 
     <input type="hidden" name="next" value="{{ next }}" />

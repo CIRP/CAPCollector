@@ -11,6 +11,8 @@ import django
 from sensitive import *
 from settings_prod import *
 
+from corsheaders.defaults import default_headers
+
 
 ###### Default settings (only modify for advanced configuration) ######
 
@@ -70,6 +72,7 @@ INSTALLED_APPS = (
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "corsheaders",
     "core",
 )
 
@@ -78,6 +81,7 @@ INSTALLED_APPS = (
 # Per https://github.com/mozilla/django-session-csrf
 # session_csrf.CsrfMiddleware must be listed after AuthenticationMiddleware.
 MIDDLEWARE_CLASSES = (
+    "corsheaders.middleware.CorsMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.locale.LocaleMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -86,6 +90,22 @@ MIDDLEWARE_CLASSES = (
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "core.middleware.ErrorLogMiddleware",
     "session_csrf.CsrfMiddleware",
+)
+
+CORS_ORIGIN_ALLOW_ALL = True
+
+CORS_ALLOW_METHODS = (
+    'DELETE',
+    'GET',
+    'OPTIONS',
+    'PATCH',
+    'POST',
+    'PUT',
+)
+
+
+CORS_ALLOW_HEADERS = default_headers + (
+    'apikey',
 )
 
 # Set up session csrf in context processor.
@@ -169,6 +189,8 @@ STATIC_ROOT = os.path.join(BASE_DIR, "client")
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),
 )
+
+APPEND_SLASH = True
 
 # The URL where requests are redirected for login.
 LOGIN_URL = "/login/"

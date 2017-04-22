@@ -29,3 +29,5 @@ python-pip
 
 # Python virtual environments.
 python-virtualenv
+
+google-cloud-sdk-app-engine-python

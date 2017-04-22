@@ -6,7 +6,7 @@
 beautifulsoup4
 
 # django - CAP collector is written on top of the Django framework.
-django==1.9.12
+django==1.11
 
 # gunicorn - Python WSGI HTTP Server for Unix. To serve as the prod webserver.
 # https://docs.djangoproject.com/en/dev/howto/deployment/wsgi/gunicorn/
@@ -38,4 +38,6 @@ django-session-csrf
 
 virtualenv
 
-whitenoise
+google-cloud
+
+django-cors-headers

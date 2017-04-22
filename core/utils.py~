@@ -84,9 +84,6 @@ def GenerateFeed(feed_type="xml"):
       expires_at__gt=GetCurrentDate()).order_by("-created_at"):
     entries.append(ParseAlert(alert.content, feed_type, alert.uuid))
 
-  if feed_type == "json":
-    return entries
-
   feed_dict = {
       "entries": entries,
       "feed_url": feed_url,

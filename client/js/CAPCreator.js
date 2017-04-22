@@ -981,7 +981,11 @@ function validateBeforeNavigate(buttonId, currentTab, nextTab) {
       if (area.geocodes.length) {
         validGeocode = area.geocodes[0].valueName && area.geocodes[0].value;
       }
-      if (!area.circles.length && !area.polygons.length && !validGeocode) {
+      area.polygons = getPolygons(); // function getPolygons() from cap_map.js
+      area.circles = getCircles();
+      console.log("Circles");
+      console.log(area.circles);
+      if (area.circles.length == 0 && area.polygons.length == 0 && !validGeocode) {
         requiredAreaPlaceholder.removeClass('hidden');
         tabSpecificIsValid = false;
       } else {

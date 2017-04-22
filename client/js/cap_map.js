@@ -64,7 +64,7 @@ $(document).delegate('#area', 'pageinit', function() {  // create drawingLayer i
 $(document).delegate('#area', 'pageshow', function() {
 
   if (!map) {  // only initialize the map once!
-
+    console.log("initializing");
     if (!cap_area) {
       cap_area = new Area('Undesignated Area');  // constructor in caplib.js
     }
@@ -179,6 +179,9 @@ function getPolygons() {
 function getCircles() {
   var circles = [];
   if (drawingLayer) {
+
+    console.log(drawingLayer.features.length);
+    console.log(JSON.stringify(drawingLayer.features[0].attributes));
     for (var i = 0; i < drawingLayer.features.length; i++) {
       var feature = drawingLayer.features[i];
       if (feature.attributes['circle']) {
