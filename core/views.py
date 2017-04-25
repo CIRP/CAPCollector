@@ -74,6 +74,23 @@ class AlertTemplateView(View):
       raise Http404
     return HttpResponse(template.content, content_type="text/xml")
 
+  def get(self, request, *args, **kwargs):
+    print "get template"
+    if "template_type" not in kwargs:
+      return HttpResponseBadRequest()
+    template_type = kwargs["template_type"]
+    if template_type == "area":
+      template_model = models.AreaTemplate
+    elif template_type == "message":
+      template_model = models.MessageTemplate
+
+    try:
+      templates = template_model.objects.all()
+      print templates
+    except template_model.DoesNotExist:
+      raise Http404
+    return HttpResponse(templates, content_type="text/plain")
+
 
 class GeocodePolygonPreviewView(View):
   """Get geocode preview polygons."""
@@ -124,11 +141,16 @@ class IndexView(TemplateView):
 class PostView(View):
   """Handles new alert creation."""
 
-  @method_decorator(login_required)
   def post(self, request, *args, **kwargs):
     username = request.POST.get("uid")
     password = request.POST.get("password")
     xml_string = request.POST.get("xml")
+
+    if not username or not password or not xml_string:
+        data = json.loads(request.body)
+        username = data["uid"]
+        password = data["password"]
+        xml_string = data["xml"]
 
     if not username or not password or not xml_string:
       return HttpResponseBadRequest()

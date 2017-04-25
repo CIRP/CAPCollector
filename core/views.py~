@@ -18,11 +18,12 @@ from django.template.loader import render_to_string
 from django.utils.decorators import method_decorator
 from django.views.generic import TemplateView
 from django.views.generic import View
-
+from django.views.decorators.csrf import csrf_exempt
+from django.http import JsonResponse
 
 class FeedView(View):
   """Feed representation (either XML or HTML)."""
-
+  @csrf_exempt
   def get(self, request, *args, **kwargs):
     feed_type = kwargs["feed_type"]
 
@@ -31,7 +32,7 @@ class FeedView(View):
         alert = models.Alert.objects.get(uuid=kwargs["alert_id"])
       except models.Alert.DoesNotExist:
         raise Http404
-
+      
       if feed_type == "html":
         context = {
             "alert": utils.ParseAlert(alert.content, feed_type, alert.uuid)
@@ -40,8 +41,12 @@ class FeedView(View):
         return HttpResponse(BeautifulSoup(response, feed_type).prettify())
 
       return HttpResponse(alert.content, content_type="text/xml")
+    
+    feed_data = utils.GenerateFeed(feed_type)
+    if feed_type == "json":
+        return JsonResponse(feed_data, safe = False)
 
-    return HttpResponse(utils.GenerateFeed(feed_type),
+    return HttpResponse(feed_data,
                         content_type="text/%s" % feed_type)
 
 
