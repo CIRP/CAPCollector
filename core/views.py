@@ -53,29 +53,10 @@ class FeedView(View):
 class AlertTemplateView(View):
   """Area/message templates view."""
 
-  @method_decorator(login_required)
-  def dispatch(self, *args, **kwargs):
-    return super(AlertTemplateView, self).dispatch(*args, **kwargs)
-
+  @csrf_exempt
   def get(self, request, *args, **kwargs):
     template_id = request.GET.get("template_id")
 
-    if "template_type" not in kwargs or not template_id:
-      return HttpResponseBadRequest()
-    template_type = kwargs["template_type"]
-    if template_type == "area":
-      template_model = models.AreaTemplate
-    elif template_type == "message":
-      template_model = models.MessageTemplate
-
-    try:
-      template = template_model.objects.get(id=template_id)
-    except template_model.DoesNotExist:
-      raise Http404
-    return HttpResponse(template.content, content_type="text/xml")
-
-  def get(self, request, *args, **kwargs):
-    print "get template"
     if "template_type" not in kwargs:
       return HttpResponseBadRequest()
     template_type = kwargs["template_type"]
@@ -83,14 +64,22 @@ class AlertTemplateView(View):
       template_model = models.AreaTemplate
     elif template_type == "message":
       template_model = models.MessageTemplate
+    
+    if not template_id:
+        templates = []
+        for obj in template_model.objects.all():
+            print obj
+            templates += [{
+            'title': obj.title,
+            'content': obj.content
+            }]
+        return JsonResponse(templates, safe = False)
 
     try:
-      templates = template_model.objects.all()
-      print templates
+      template = template_model.objects.get(id=template_id)
     except template_model.DoesNotExist:
       raise Http404
-    return HttpResponse(templates, content_type="text/plain")
-
+    return HttpResponse(template.content, content_type="text/xml")
 
 class GeocodePolygonPreviewView(View):
   """Get geocode preview polygons."""
@@ -140,7 +129,7 @@ class IndexView(TemplateView):
 
 class PostView(View):
   """Handles new alert creation."""
-
+  @csrf_exempt
   def post(self, request, *args, **kwargs):
     username = request.POST.get("uid")
     password = request.POST.get("password")
