@@ -26,6 +26,9 @@ class FeedView(View):
   @csrf_exempt
   def get(self, request, *args, **kwargs):
     feed_type = kwargs["feed_type"]
+    
+    audience = request.GET.get('audience', '');
+    print audience
 
     if "alert_id" in kwargs:
       try:
@@ -44,11 +47,16 @@ class FeedView(View):
     
     feed_data = utils.GenerateFeed(feed_type)
     if feed_type == "json":
-        return JsonResponse(feed_data, safe = False)
+        if audience == "":
+            return JsonResponse(feed_data, safe = False)
+        new_feed = []
+        for alert in feed_data:
+            if alert["audience"] == audience:
+                new_feed.append(alert)
+        return JsonResponse(new_feed, safe = False)
 
     return HttpResponse(feed_data,
                         content_type="text/%s" % feed_type)
-
 
 class AlertTemplateView(View):
   """Area/message templates view."""
@@ -131,6 +139,7 @@ class PostView(View):
   """Handles new alert creation."""
   @csrf_exempt
   def post(self, request, *args, **kwargs):
+    print "request received"
     username = request.POST.get("uid")
     password = request.POST.get("password")
     xml_string = request.POST.get("xml")

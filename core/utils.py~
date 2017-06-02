@@ -186,7 +186,6 @@ def ParseAlert(xml_string, feed_type, alert_uuid):
         "response_type": GetFirstText(GetCapElement("responseType", xml_tree)),
         "sent": sent,
         "description": GetFirstText(GetCapElement("description", xml_tree)),
-        "audience": GetFirstText(GetCapElement("audience", xml_tree)),
         "instruction": GetFirstText(GetCapElement("instruction", xml_tree)),
         "urgency": GetFirstText(GetCapElement("urgency", xml_tree)),
         "severity": GetFirstText(GetCapElement("severity", xml_tree)),
