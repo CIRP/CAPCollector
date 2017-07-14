@@ -1,0 +1,34 @@
+# Linux dependencies for running CAPTools application.
+
+# Informational list of build-essential packages.
+gcc gcc-c++ make openssl-devel
+
+# GNU Internationalization utilities.
+gettext
+
+# Development files for the GNOME XML library.
+libxml2-devel
+
+# XSLT 1.0 processing library - development kit.
+libxslt-devel
+
+# Implements XML Signature and XML Encryption XML standards.
+libxml2-devel xmlsec1-devel xmlsec1-openssl-devel libtool-ltdl-devel
+
+# MySQL database development files.
+mysql-devel
+# libmysqlclient-devel
+
+# Header files and a static library for Python.
+python-devel
+
+# Python interface to MySQL.
+MySQL-python
+
+
+# Python package installer.
+python-pip
+
+# Python virtual environments.
+python-virtualenv
+

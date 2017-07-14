@@ -44,3 +44,6 @@ Botterell, one of the original designers of the Common Alerting Protocol.
 
  **CAPTools&trade;**, **CAPCreator&trade;**, **CAPCollector&trade;** and
  **CAPConsumer&trade;** are trademarks of Carnegie Mellon  University.
+
+**Modifications**
+The CAPCollector Tools was modified from the original to support the requirements of the Caribbean's Fisheries Early Warning and Emergency Response system. Which focuses on providing CAP compatible alerts to fisheries specific target communities.

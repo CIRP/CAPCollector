@@ -11,13 +11,13 @@
 # TODO(arcadiy): automate code checkout and virtual environment setup processes
 # after we check in code to GitHub.
 
-PIP="../venv/bin/pip"
-PIP_LIBS="../venv/local/lib/python2.7/site-packages"
-PYTHON="../venv/bin/python"
+PIP="./venv/bin/pip"
+PIP_LIBS="./venv/local/lib/python2.7/site-packages"
+PYTHON="./venv/bin/python"
 
 # Check virtual environment setup.
 #if [ ! -e "$PIP" ] && [ ! -e "$PYTHON" ]; then
-#  echo "Script expects that you have first run 'virtualenv ../venv'"
+#  echo "Script expects that you have first run 'virtualenv ./venv'"
 #  exit 1
 #fi
 
