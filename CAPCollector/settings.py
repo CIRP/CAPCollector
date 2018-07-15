@@ -46,14 +46,14 @@ ALERT_CREATORS_GROUP_NAME = "can release alerts"
 # A list of strings representing the host/domain names that this Django site ca
 # serve.
 # https://docs.djangoproject.com/en/dev/ref/settings/#allowed-hosts
-ALLOWED_HOSTS = ["localhost", "fewercapdemo.herokuapp.com", SITE_DOMAIN]
+ALLOWED_HOSTS = ["localhost", SITE_DOMAIN]
 
 # Must be set to False in production.
 # See https://docs.djangoproject.com/en/dev/ref/settings/#debug
 DEBUG = True
 
 # See https://docs.djangoproject.com/en/dev/ref/settings/#template-debug
-TEMPLATE_DEBUG = False
+# TEMPLATE_DEBUG = False
 
 # List of locations of the template source files searched by Django loaders.
 # See https://docs.djangoproject.com/en/dev/ref/settings/#template-dirs
@@ -73,7 +73,7 @@ INSTALLED_APPS = (
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "corsheaders",
-    "core",
+    "core"
 )
 
 # A tuple of middleware classes to use.
@@ -89,7 +89,7 @@ MIDDLEWARE_CLASSES = (
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "core.middleware.ErrorLogMiddleware",
-    "session_csrf.CsrfMiddleware",
+    "session_csrf.CsrfMiddleware"
 )
 
 CORS_ORIGIN_ALLOW_ALL = True
@@ -100,13 +100,10 @@ CORS_ALLOW_METHODS = (
     'OPTIONS',
     'PATCH',
     'POST',
-    'PUT',
+    'PUT'
 )
 
-
-CORS_ALLOW_HEADERS = default_headers + (
-    'apikey',
-)
+CORS_ALLOW_HEADERS = default_headers + ('apikey',)
 
 # Set up session csrf in context processor.
 # For Django version 1.8 or above, update TEMPLATES OPTIONS section with
@@ -132,8 +129,9 @@ if StrictVersion(django.get_version()) >= StrictVersion("1.8"):
                   "django.contrib.messages.context_processors.messages",
                   "session_csrf.context_processor",
               ],
-          },
-      },
+              'debug': DEBUG,
+          }
+      }
   ]
 else:
   # see https://docs.djangoproject.com/en/dev/ref/settings/#template-context-processors
@@ -214,4 +212,4 @@ if (os.environ.get("CAP_TOOLS_DEV") or
   from settings_dev import *
 if TESTING:
   from settings_test import *
-  INSTALLED_APPS += ("tests",)
+  # INSTALLED_APPS += ("tests",)

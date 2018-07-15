@@ -133,8 +133,7 @@ class End2EndTests(CAPCollectorLiveServer):
       self.assertEqual(alert_dict[key], initial_dict[key])
     return alert_dict
 
-  def CreateAlert(self, golden_dict, expiration=None, skip_login=False,
-                  update=False):
+  def CreateAlert(self, golden_dict, expiration=None, skip_login=False, update=False):
     """Creates alert based on passed dictionary. Supports log in when needed."""
     if not skip_login:
       self.webdriver.get(self.live_server_url)

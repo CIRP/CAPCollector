@@ -14,7 +14,12 @@ SITE_DOMAIN = "localhost"
 SITE_PORT = "8081"
 SITE_URL = SITE_SCHEME + "://" + SITE_DOMAIN + ":" + SITE_PORT
 
-ALLOWED_HOSTS = ["localhost", "fewercapdemo.herokuapp.com", SITE_DOMAIN]
+ALLOWED_HOSTS = ["localhost", SITE_DOMAIN]
+
+# https://code.djangoproject.com/wiki/Fixtures
+FIXTURE_DIRS = (
+     os.path.join(BASE_DIR, "tests/fixtures"),
+)
 
 LANGUAGES = (
     ("en-us", "English"),

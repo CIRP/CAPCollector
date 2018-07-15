@@ -21,21 +21,22 @@ from django.views.generic import View
 from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
 
+
 class FeedView(View):
   """Feed representation (either XML or HTML)."""
   @csrf_exempt
   def get(self, request, *args, **kwargs):
     feed_type = kwargs["feed_type"]
     
-    audience = request.GET.get('audience', '');
-    print audience
+    audience = request.GET.get('audience', '')
+    # print(audience)
 
     if "alert_id" in kwargs:
       try:
         alert = models.Alert.objects.get(uuid=kwargs["alert_id"])
       except models.Alert.DoesNotExist:
         raise Http404
-      
+
       if feed_type == "html":
         context = {
             "alert": utils.ParseAlert(alert.content, feed_type, alert.uuid)
@@ -57,6 +58,7 @@ class FeedView(View):
 
     return HttpResponse(feed_data,
                         content_type="text/%s" % feed_type)
+
 
 class AlertTemplateView(View):
   """Area/message templates view."""
@@ -88,6 +90,7 @@ class AlertTemplateView(View):
     except template_model.DoesNotExist:
       raise Http404
     return HttpResponse(template.content, content_type="text/xml")
+
 
 class GeocodePolygonPreviewView(View):
   """Get geocode preview polygons."""
@@ -139,16 +142,15 @@ class PostView(View):
   """Handles new alert creation."""
   @csrf_exempt
   def post(self, request, *args, **kwargs):
-    print "request received"
-    username = request.POST.get("uid")
-    password = request.POST.get("password")
-    xml_string = request.POST.get("xml")
-
-    if not username or not password or not xml_string:
-        data = json.loads(request.body)
-        username = data["uid"]
-        password = data["password"]
-        xml_string = data["xml"]
+    try:
+      data = json.loads(request.body)
+      username = data["uid"]
+      password = data["password"]
+      xml_string = data["xml"]
+    except Exception as error:
+      username = request.POST.get("uid")
+      password = request.POST.get("password")
+      xml_string = request.POST.get("xml")
 
     if not username or not password or not xml_string:
       return HttpResponseBadRequest()

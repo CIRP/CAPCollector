@@ -18,7 +18,7 @@ SITE_SCHEME = "http"
 SITE_PORT = "9090"  # Optional.
 SITE_URL = SITE_SCHEME + "://" + SITE_DOMAIN
 
-ALLOWED_HOSTS = ["localhost", "fewercapdemo.herokuapp.com", SITE_DOMAIN]
+ALLOWED_HOSTS = ["localhost", SITE_DOMAIN]
 
 if SITE_PORT:
   SITE_URL = SITE_URL + ":" + SITE_PORT

@@ -31,7 +31,7 @@ pytz
 pyXMLSecurity
 
 # selenium - Functional testing framework.
-selenium==2.43
+selenium==3.13.0
 
 # django-session-csrf - Required for Django session based CSRF protection.
 django-session-csrf

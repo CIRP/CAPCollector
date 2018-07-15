@@ -38,3 +38,6 @@ nosetests.xml
 # Local development files
 .idea/
 venv/
+
+# Files Generated during testing
+*.log
