@@ -42,3 +42,6 @@ venv/
 # Files Generated during testing
 *.log
 *.sqlite3
+
+# Added  the sensitive.py file to keep credentials out the database
+sensitive.py
