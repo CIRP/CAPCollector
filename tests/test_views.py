@@ -25,8 +25,14 @@ class SmokeTests(TestBase):
     self.client = Client()
 
   def login(self):
-    self.client.post("/login/", {"username": self.TEST_USER_LOGIN,
+    res = self.client.post("/login/", {"username": self.TEST_USER_LOGIN,
                                  "password": self.TEST_USER_PASSWORD})
+    return res
+
+  def test_login(self):
+    """Test that User is able to login correctly Sm"""
+    response = self.login()
+    self.assertEqual(response.status_code, 302)  # 302 Interpreted as Found by Django system
 
   def test_feed_xml(self):
     """Tests that XML feed opens with no erorrs."""
