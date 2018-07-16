@@ -41,3 +41,4 @@ venv/
 
 # Files Generated during testing
 *.log
+*.sqlite3

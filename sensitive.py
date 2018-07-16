@@ -1,8 +1,8 @@
-SECRET_KEY='8kno)yfgde8qx(tk0fk6^m&h3fl*3$k8^+4u!sb+mu*jwlpzn0'
-DATABASE_HOST='localhost'
-DATABASE_NAME='captest'
-DATABASE_USER='root'
-DATABASE_PASSWORD='adminuser'
+SECRET_KEY=''
+DATABASE_HOST=''
+DATABASE_NAME=''
+DATABASE_USER=''
+DATABASE_PASSWORD=''
 
 # Flags for testing against a development MySQL database. This is used by default with AppEngine's dev_appserver,
 # and can also be turned on by running 'export CAP_TOOLS_DB=dev', but this is not required if using Django's internal sqlite db.
