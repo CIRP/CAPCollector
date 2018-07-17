@@ -150,12 +150,12 @@ class Command(BaseCommand):
                                                      geocode_key)
       obj.content = "\n".join(polygons)
       preview_polygon_objs.append(obj)
-      print obj.id
+      print(obj.id)
       done += 1
       if done % BATCH_SIZE == 0:
-        print "Finished %d" % done
+        print("Finished %d" % done)
         models.GeocodePreviewPolygon.objects.bulk_create(preview_polygon_objs)
         preview_polygon_objs = []
 
     models.GeocodePreviewPolygon.objects.bulk_create(preview_polygon_objs)
-    print "All done, saved %d" % done
+    print("All done, saved %d" % done)

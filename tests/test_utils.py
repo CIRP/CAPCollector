@@ -118,7 +118,7 @@ class UtilsTests(test.TestCase):
     """Tests alert signature creation with no certificate provided."""
     plain_alert = etree.fromstring(self.valid_alert_content)
     signed_alert = utils.SignAlert(plain_alert, "does not exist")
-    self.assertEquals(plain_alert, signed_alert)
+    self.assertEqual(plain_alert, signed_alert)
 
   def test_create_alert_created(self):
     """Tests alert created successfully."""
@@ -126,7 +126,7 @@ class UtilsTests(test.TestCase):
                                                     self.TEST_USER_NAME)
     self.assertTrue(UUID_RE.match(alert_uuid))
     self.assertTrue(is_valid)
-    self.assertEquals(error, None)
+    self.assertEqual(error, None)
 
     alert = models.Alert.objects.get(uuid=alert_uuid)
     alert_dict = utils.ParseAlert(alert.content, "xml", alert.uuid)
@@ -140,7 +140,7 @@ class UtilsTests(test.TestCase):
     """Tests alert creation failed for invalid XML tree."""
     uuid, is_valid, error = utils.CreateAlert(self.invalid_alert_content,
                                               self.TEST_USER_NAME)
-    self.assertEquals(uuid, None)
+    self.assertEqual(uuid, None)
     self.assertFalse(is_valid)
     self.assertTrue(error)
 

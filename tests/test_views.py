@@ -68,13 +68,13 @@ class SmokeTests(TestBase):
   def test_index_page_context(self):
     self.login()
     response = self.client.get("/")
-    self.assertEquals(response.context["map_default_viewport"],
+    self.assertEqual(response.context["map_default_viewport"],
                       settings.MAP_DEFAULT_VIEWPORT)
-    self.assertEquals(response.context["default_expires_duration_minutes"],
+    self.assertEqual(response.context["default_expires_duration_minutes"],
                       settings.DEFAULT_EXPIRES_DURATION_MINUTES)
-    self.assertEquals(response.context["use_datetime_picker"],
+    self.assertEqual(response.context["use_datetime_picker"],
                       settings.USE_DATETIME_PICKER_FOR_EXPIRES)
-    self.assertEquals(response.context["time_zone"], settings.TIME_ZONE)
+    self.assertEqual(response.context["time_zone"], settings.TIME_ZONE)
 
   def test_geocodepreviewpolygons(self):
     self.login()
@@ -89,22 +89,22 @@ class SmokeTests(TestBase):
 
     response = self.client.post("/preview/polygons", {"geocodes": "[]"})
     self.assertEqual(response.status_code, 200)
-    self.assertEquals(response.content, "[]")
+    self.assertEqual(response.content, "[]")
 
     request = [{"valueName": "unsupported", "value": "geocode"}]
     response = self.client.post("/preview/polygons",
                                 {"geocodes": json.dumps(request)})
     self.assertEqual(response.status_code, 200)
-    self.assertEquals(response.content, "[]")
+    self.assertEqual(response.content, "[]")
 
     request = [{"valueName": "geocode1", "value": "one"}]
     response = self.client.post("/preview/polygons",
                                 {"geocodes": json.dumps(request)})
     self.assertEqual(response.status_code, 200)
     parsed = json.loads(response.content)
-    self.assertEquals(1, len(parsed))
-    self.assertEquals("geocode1|one", parsed[0]["id"])
-    self.assertEquals(2, parsed[0]["content"].count("<polygon>"))
+    self.assertEqual(1, len(parsed))
+    self.assertEqual("geocode1|one", parsed[0]["id"])
+    self.assertEqual(2, parsed[0]["content"].count("<polygon>"))
 
     request = [{"valueName": "geocode1", "value": "one"},
                {"valueName": "IN_IMD_DISTRICTS", "value": "36"}]
@@ -112,7 +112,7 @@ class SmokeTests(TestBase):
                                 {"geocodes": json.dumps(request)})
     self.assertEqual(response.status_code, 200)
     parsed = json.loads(response.content)
-    self.assertEquals(2, len(parsed))
+    self.assertEqual(2, len(parsed))
 
 
 class End2EndTests(CAPCollectorLiveServer):
@@ -422,7 +422,7 @@ class End2EndTests(CAPCollectorLiveServer):
     self.GoToMessageTab()
     language = settings.LANGUAGES[1]  # Hindi.
     self.SetUserLanguage(language[0])
-    self.assertEquals(self.GetLanguage(), language[1])
+    self.assertEqual(self.GetLanguage(), language[1])
 
   def test_alert_required_fields_validation(self):
     """Tests alert validation: all required fields should be filled in.
@@ -528,7 +528,7 @@ class End2EndTests(CAPCollectorLiveServer):
     AreaTabSpecificTestCase("Area with no geocodes, circles or polygons")
 
     # Make sure it succeeds if any of geocode, circle or polygon set.
-    for template_name, template_id in test_area_template_dict.iteritems():
+    for template_name, template_id in test_area_template_dict.items():
       AreaTabSpecificTestCase(template_name, template_id)
 
   def test_alert_template_placeholder_fields_validation(self):

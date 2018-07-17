@@ -7,7 +7,7 @@ import session_csrf
 # is applied before views are imported.
 session_csrf.monkeypatch()
 
-import auth
+from . import auth
 from django.conf import settings
 from django.conf.urls import include
 from django.conf.urls import url

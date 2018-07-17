@@ -48,7 +48,7 @@ class Command(BaseCommand):
     template_objects = []
     for file_name in os.listdir(templates_path):
       if not file_name.endswith(".xml"):
-        print "Ignored file: %s" % file_name
+        print("Ignored file: %s" % file_name)
         continue
 
       file_path = os.path.join(templates_path, file_name)

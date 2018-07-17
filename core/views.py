@@ -78,7 +78,7 @@ class AlertTemplateView(View):
     if not template_id:
         templates = []
         for obj in template_model.objects.all():
-            print obj
+            print(obj)
             templates += [{
             'title': obj.title,
             'content': obj.content

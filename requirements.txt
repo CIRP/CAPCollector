@@ -6,7 +6,7 @@
 beautifulsoup4
 
 # django - CAP collector is written on top of the Django framework.
-django==1.11
+django==1.11.14
 
 # gunicorn - Python WSGI HTTP Server for Unix. To serve as the prod webserver.
 # https://docs.djangoproject.com/en/dev/howto/deployment/wsgi/gunicorn/
@@ -18,8 +18,9 @@ lxml
 # mock - A Python mocking and patching library for testing.
 mock
 
-# MySQL-python - MySQL support.
-MySQL-python
+# MySQL-python / mysqlclient - MySQL (MariaDB) support.
+# MySQL-python # For python 2.7
+mysqlclient # For python 3 and 2.7
 
 # python-dateutil - Easy dates parsing.
 python-dateutil
@@ -41,3 +42,4 @@ django-session-csrf
 # google-cloud
 
 django-cors-headers
+whitenoise

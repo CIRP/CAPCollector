@@ -9,7 +9,7 @@ import sys
 
 import django
 from sensitive import *
-from settings_prod import *
+from .settings_prod import *
 
 from corsheaders.defaults import default_headers
 
@@ -209,7 +209,7 @@ if os.environ.get("SERVER_SOFTWARE"):
 if (os.environ.get("CAP_TOOLS_DEV") or
     (os.environ.get("SERVER_SOFTWARE") and
      os.environ.get("SERVER_SOFTWARE").startswith("Development"))):
-  from settings_dev import *
+  from .settings_dev import *
 if TESTING:
-  from settings_test import *
+  from .settings_test import *
   # INSTALLED_APPS += ("tests",)
